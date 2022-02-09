@@ -1,0 +1,92 @@
+:root {
+    
+} 
+
+body {
+    background-color: beige;
+}
+/* === Header - logo / welcome === */
+header {
+}
+#logo {
+    background-color: cyan;
+    border: 2px solid black;
+    
+}
+#welcome-nickname {
+    background-color: orange;
+    border: 2px solid black;
+}
+/* === Section - Year & Gif & Landing Page Alerts=== */
+#year-and-gif {
+    background-color: burlywood;
+}
+#year {
+    align-item: center;
+    border: 2px solid black;
+}
+
+#earth {
+    /* min-height: 300px; revisit */
+
+}
+
+/* === Section - Landing Page Alert === */ 
+
+#initial-alert {
+    background-color: blueviolet;
+}
+#initial-description {
+    border: 2px solid black;
+}
+#begin-game {
+    background-color: gray;
+}
+
+/* === Footer - metrics & btn containers === */
+footer {
+    font-size: 12px;
+}
+
+#metrics-container {
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+}
+.metrics {
+    text-align: center;
+}
+#metrics-oxygen {
+    border: 2px solid black;
+}
+#metrics-water {
+    border: 2px solid black;
+
+}
+#metrics-sun {
+    border: 2px solid black;
+}
+#btn-container {
+    background-color: yellow;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.btn {
+    text-align: center;
+}
+#btn-oxygen {
+    border: 2px solid black;
+    
+    
+
+}
+#btn-water {
+    border: 2px solid black;
+    
+}
+#btn-sun {
+    border: 2px solid black;
+}
+
+
