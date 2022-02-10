@@ -50,21 +50,28 @@ const setUpNewRound = () => {
     }
 
 
-
+// Created functions which decrease the health of the elemeny by 1 every second 
 
 const oxygenDecrease = setInterval(() => {
     oxygenLevel--;
-    console.log('oxygen is ' + oxygenLevel);
+    if (oxygenLevel < 0){
+        oxygenLevel = 0;
+    }
+    console.log('DECREASED oxygen to ' + oxygenLevel);
 }, 1000);
-
 const waterDecrease = setInterval(() => {
     waterLevel--;
-    console.log('water is ' + waterLevel);
+    if (waterLevel < 0){
+        waterLevel = 0;
+    }
+    console.log('DECREASED water to ' + waterLevel);
 }, 1000);
-
 const sunlightDecrease = setInterval(() => {
     sunlightLevel--;
-    console.log('sunlight is ' + sunlightLevel);
+    if (sunlightLevel < 0){
+        sunlightLevel = 0;
+    }
+    console.log('DECREASED sunlight to ' + sunlightLevel);
 }, 1000);
 
     
@@ -102,21 +109,28 @@ $('#begin-game').on('click', () => {
 
 
 $('#btn-oxygen').on('click', () => {
-    console.log("Oxygen Clicked");
     oxygenLevel++;
-    console.log(oxygenLevel);
+    if (oxygenLevel > 10){
+        oxygenLevel = 10;
+    }
+    console.log('INCREASED water to ' + oxygenLevel);
 });
 
 $('#btn-water').on('click', () => {
-    console.log("Water Clicked");
     waterLevel++;
-    console.log(waterLevel);
+    if (waterLevel > 10){
+        waterLevel = 10;
+    }
+    console.log('INREASED water to ' + waterLevel);
 });
 
 $('#btn-sun').on('click', () => {
     console.log("Sun Clicked");
     sunlightLevel++;
-    console.log(sunlightLevel);
+    if (sunlightLevel > 10){
+        sunlightLevel = 10;
+    }
+    console.log('INCREASED water to ' + sunlightLevel);
 });
 
 
