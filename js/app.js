@@ -3,19 +3,18 @@
 let time = 500000000;
 let round = 1;
 let nickname = prompt('Welcome! To begin enter a nickname for your Earth');
-let oxygenLevel = 3;
-let waterLevel = 3;
-let sunlightLevel = 3;
+let oxygenLevel = 11;
+let waterLevel = 11;
+let sunlightLevel = 11;
 
 
-let num = 100000;
-
-/* === Functions === */
+/* === Methods === */
 
 // Created functions which decrease the health of the elemeny by 1 every second 
 
 const oxygenDecrease = setInterval(() => {
     oxygenLevel--;
+    $('#oxygen').attr('value', oxygenLevel)
     if (oxygenLevel === 0){
         clearInterval(oxygenDecrease);
     }
@@ -23,6 +22,7 @@ const oxygenDecrease = setInterval(() => {
 }, 1000);
 const waterDecrease = setInterval(() => {
     waterLevel--;
+    $('#water').attr('value', waterLevel)
     if (waterLevel === 0){
         clearInterval(waterDecrease);
     }
@@ -30,6 +30,7 @@ const waterDecrease = setInterval(() => {
 }, 1000);
 const sunlightDecrease = setInterval(() => {
     sunlightLevel--;
+    $('#sun').attr('value', sunlightLevel)
     if (sunlightLevel === 0){
         clearInterval(sunlightDecrease);
     }
@@ -55,7 +56,16 @@ const setUpNewRound = () => {
     } else if (round === 4){
         $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314854-42742347-8ee9-43d8-b5b6-70aa8feb45bb.gif");
         console.log(round);
-    } 
+    } else if (round === 5){
+        console.log('you won! Congrats')
+        $('#btn-oxygen').off('click');
+        $('#btn-water').off('click');
+        $('#btn-sun').off('click');
+        clearInterval(waterDecrease);
+        clearInterval(oxygenDecrease);
+        clearInterval(sunlightDecrease);
+        clearInterval(timer);
+    }
 }
 
 
@@ -63,6 +73,10 @@ const gameOver = () => {
         $('#btn-oxygen').off('click');
         $('#btn-water').off('click');
         $('#btn-sun').off('click');
+        clearInterval(timer);
+        clearInterval(waterDecrease);
+        clearInterval(oxygenDecrease);
+        clearInterval(sunlightDecrease);
         console.log("game over");
         $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153334497-cb7e076c-7610-4369-8944-f21ddc5af27b.gif");
     }
@@ -81,6 +95,18 @@ const gameOver = () => {
         }
         return str.join('.');
     }
+
+/* === Health Element Bar ==*/
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -109,7 +135,7 @@ $('#begin-game').on('click', () => {
            setUpNewRound();
            clearInterval(timer);
            console.log("timer stopped")
-        }  else if (oxygenLevel === 0){
+        }  else if (oxygenLevel === 0 || waterLevel === 0 || sunlightLevel === 0){
              gameOver();
         }}, 1000);
     });
@@ -118,6 +144,7 @@ $('#begin-game').on('click', () => {
 
 $('#btn-oxygen').on('click', () => {
     oxygenLevel++;
+    $('#oxygen').attr('value', oxygenLevel)
     if (oxygenLevel > 10){
         oxygenLevel = 10;
     }
@@ -126,6 +153,7 @@ $('#btn-oxygen').on('click', () => {
 
 $('#btn-water').on('click', () => {
     waterLevel++;
+    $('#water').attr('value', waterLevel)
     if (waterLevel > 10){
         waterLevel = 10;
     }
@@ -135,6 +163,7 @@ $('#btn-water').on('click', () => {
 $('#btn-sun').on('click', () => {
     console.log("Sun Clicked");
     sunlightLevel++;
+    $('#sun').attr('value', sunlightLevel)
     if (sunlightLevel > 10){
         sunlightLevel = 10;
     }
@@ -179,16 +208,6 @@ $('#metrics-sun').on('click', () => {
     console.log("Sun Level Clicked");
 });
 */
-
-
-
-
-
-
-
-
-
-
 
 
 

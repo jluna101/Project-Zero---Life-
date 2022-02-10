@@ -34,15 +34,25 @@
     </section>
     <footer>
         <div id="metrics-container">
-            <div class="metrics" id="metrics-oxygen">OXYGEN LEVEL</div>
-            <div class="metrics" id="metrics-water">WATER LEVEL</div>
-            <div class="metrics" id="metrics-sun">SUN LEVEL</div>
+
+            <div class="metrics">
+                <progress id="oxygen" class="metrics-oxygen" value=10 max=10></progress>
+            </div>
+
+            <div class="metrics">
+                <progress id="water" class="metrics-water" value=10 max=10></progress>
+            </div>
+
+            <div class="metrics">
+                <progress id="sun" class="metrics-sun" value=10 max=10></progress>
+            </div>
         </div>
-        <div id="btn-container">
+    </footer>
+        <section id="btn-container">
             <div class="btn" id="btn-oxygen">OXYGEN</div>
             <div class="btn" id="btn-water">WATER</div>
             <div class="btn" id="btn-sun">SUNLIGHT</div>
-        </div>
+        </section>
     </footer>
 </body>
 </html>
