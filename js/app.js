@@ -11,7 +11,7 @@ let sunlightLevel = 11;
 /* === Methods === */
 
 // Created functions which decrease the health of the elemeny by 1 every second 
-
+/*
 const oxygenDecrease = setInterval(() => {
     oxygenLevel--;
     $('#oxygen').attr('value', oxygenLevel)
@@ -36,6 +36,7 @@ const sunlightDecrease = setInterval(() => {
     }
     console.log('DECREASED sunlight to ' + sunlightLevel);
 }, 1000);
+*/
 
 // Below sets the game up by remove the landing page html, displaying the nickname input, and begins the time. 
 const setUpGame = () => {
@@ -61,14 +62,11 @@ const setUpNewRound = () => {
         $('#btn-oxygen').off('click');
         $('#btn-water').off('click');
         $('#btn-sun').off('click');
-        clearInterval(waterDecrease);
-        clearInterval(oxygenDecrease);
-        clearInterval(sunlightDecrease);
         clearInterval(timer);
     }
 }
 
-
+/* Copied to bottom
 const gameOver = () => {
         $('#btn-oxygen').off('click');
         $('#btn-water').off('click');
@@ -80,7 +78,7 @@ const gameOver = () => {
         console.log("game over");
         $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153334497-cb7e076c-7610-4369-8944-f21ddc5af27b.gif");
     }
-
+*/
 
 // The below Commafy() function came from stackoverflow, with only minor changes made by Jesse (me): https://stackoverflow.com/questions/6784894/add-commas-or-spaces-to-group-every-three-digits
 // Credits to user Ghostoy
@@ -138,7 +136,57 @@ $('#begin-game').on('click', () => {
         }  else if (oxygenLevel === 0 || waterLevel === 0 || sunlightLevel === 0){
              gameOver();
         }}, 1000);
+    const oxygenDecrease = setInterval(() => {
+            oxygenLevel--;
+            $('#oxygen').attr('value', oxygenLevel)
+            if (oxygenLevel === 0){
+                clearInterval(oxygenDecrease);
+            }
+            console.log('DECREASED oxygen to ' + oxygenLevel);
+        }, 1000);
+    const waterDecrease = setInterval(() => {
+            waterLevel--;
+            $('#water').attr('value', waterLevel)
+            if (waterLevel === 0){
+                clearInterval(waterDecrease);
+            }
+            console.log('DECREASED water to ' + waterLevel);
+        }, 1000);
+    const sunlightDecrease = setInterval(() => {
+            sunlightLevel--;
+            $('#sun').attr('value', sunlightLevel)
+            if (sunlightLevel === 0){
+                clearInterval(sunlightDecrease);
+            }
+            console.log('DECREASED sunlight to ' + sunlightLevel);
+        },1000);
+    const gameOver = () => {
+            $('#btn-oxygen').off('click');
+            $('#btn-water').off('click');
+            $('#btn-sun').off('click');
+            clearInterval(timer);
+            clearInterval(waterDecrease);
+            clearInterval(oxygenDecrease);
+            clearInterval(sunlightDecrease);
+            console.log("game over");
+            $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153334497-cb7e076c-7610-4369-8944-f21ddc5af27b.gif");
+        }
     });
+    
+/* 
+    const gameOver = () => {
+        $('#btn-oxygen').off('click');
+        $('#btn-water').off('click');
+        $('#btn-sun').off('click');
+        clearInterval(timer);
+        clearInterval(waterDecrease);
+        clearInterval(oxygenDecrease);
+        clearInterval(sunlightDecrease);
+        console.log("game over");
+        $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153334497-cb7e076c-7610-4369-8944-f21ddc5af27b.gif");
+    }
+*/
+
 
 
 
