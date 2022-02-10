@@ -7,6 +7,7 @@ let oxygenLevel = 5;
 let waterLevel = 5;
 let sunlightLevel = 5;
 
+
 let num = 100000;
 
 /* === Functions === */
@@ -36,7 +37,7 @@ const setUpNewRound = () => {
 
 // The below Commafy() function came from stackoverflow, with only minor changes made by Jesse (me): https://stackoverflow.com/questions/6784894/add-commas-or-spaces-to-group-every-three-digits
 // Credits to user Ghostoy
- 
+
     function commafy( num ) {
         let str = num.toString().split('.');
         if (str[0].length >= 5) {
@@ -48,33 +49,23 @@ const setUpNewRound = () => {
         return str.join('.');
     }
 
-// Below is the timer with if statements to invoke the setUpNewRound at specific values for time
-const timer = () => {
-    time+=10000000;
-    $('#year').text('Age: ' + commafy(time) + ' Years');
-    
 
-    if (time === 1500000000){
-        round++;
-        setUpNewRound();
-    } else if (time === 2500000000){
-        round++;
-        setUpNewRound();
-    } else if (time === 3500000000){
-        round++;
-        setUpNewRound();
-    } else if (time === 4540000000){
-       round++;
-       setUpNewRound();
-    } else if (time > 4540000000) {
-        $('#year').text('Age: 4,540,000,000 Years');
-        
-    }};
 
-    const oxygenDecrease = setInterval(() => {
-        oxygenLevel--;
-        console.log('oxygen is ' + oxygenLevel);
-    }, 1000);
+
+const oxygenDecrease = setInterval(() => {
+    oxygenLevel--;
+    console.log('oxygen is ' + oxygenLevel);
+}, 1000);
+
+const waterDecrease = setInterval(() => {
+    waterLevel--;
+    console.log('water is ' + waterLevel);
+}, 1000);
+
+const sunlightDecrease = setInterval(() => {
+    sunlightLevel--;
+    console.log('sunlight is ' + sunlightLevel);
+}, 1000);
 
     
 
@@ -84,12 +75,31 @@ const timer = () => {
 
 // let timeWithCommas = commafy(time);
 
+// Timer begins when 'begin game' button is selected and timer stops when time = 4540000000
 $('#begin-game').on('click', () => {
     console.log("Begin Game Clicked");
-    timer();
     setUpGame();
-    setInterval(timer, 10);
-});
+    timer = setInterval(function () {
+        time+=10000000;
+        $('#year').text('Age: ' + commafy(time) + ' Years');
+        if (time === 1500000000){
+            round++;
+            setUpNewRound();
+        } else if (time === 2500000000){
+            round++;
+            setUpNewRound();
+        } else if (time === 3500000000){
+            round++;
+            setUpNewRound();
+        } else if (time === 4540000000){
+           round++;
+           setUpNewRound();
+           clearInterval(timer);
+           console.log("timer stopped")
+        }}, 10);
+    });
+
+
 
 $('#btn-oxygen').on('click', () => {
     console.log("Oxygen Clicked");
@@ -146,4 +156,52 @@ $('#metrics-water').on('click', () => {
 $('#metrics-sun').on('click', () => {
     console.log("Sun Level Clicked");
 });
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* const timer = () => {
+    time+=10000000;
+    $('#year').text('Age: ' + commafy(time) + ' Years');
+    // let timerInterval = setInterval(timer, 1000);
+    // timerInterval;
+    if (time === 1500000000){
+        round++;
+        setUpNewRound();
+    } else if (time === 2500000000){
+        round++;
+        setUpNewRound();
+    } else if (time === 3500000000){
+        round++;
+        setUpNewRound();
+    } else if (time === 4540000000){
+       round++;
+       setUpNewRound();
+       clearInterval(timerInterval);
+       console.log("timer stopped")
+    // } else if (time > 4540000000) {
+       // $('#year').text('Age: 4,540,000,000 Years');
+    }};
+let timerInterval = setInterval();
+
+
+$('#begin-game').on('click', () => {
+    console.log("Begin Game Clicked");
+    setUpGame();
+
+    // timerInterval;
+});
+
 */
