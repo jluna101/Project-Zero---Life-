@@ -1,10 +1,10 @@
 // Variables 
 
-let time = 0;
+let time = 500000000;
+let round = 1;
 let nickname = prompt('Welcome! To begin enter a nickname for your Earth');
-setInterval(time, 10000);
 
-
+let num = 100000;
 
 /* === Test Functions === */
 
@@ -17,29 +17,62 @@ setInterval(time, 10000);
 const setUpGame = () => {
     // $('#year').text('Year: ' + time + ' million');
     $('#initial-alert').remove();
-    $('#welcome-nickname').text(nickname);
+    $('#welcome-nickname').text(nickname).toUpperCase;
     $('#begin-game').remove();
     // timer(); - TIMER NOT WORKING YET 
 }
 
-/* Timer Function - In progress 
-const timer = () => {
-    time++;
-    $('#year').text('Year: ' + time + ' million');
-    if (time === 0) {
-        time++;
+/* 
+    The below Commafy() function came from stackoverflow, with only minor changes made by Jesse (me): https://stackoverflow.com/questions/6784894/add-commas-or-spaces-to-group-every-three-digits
+    Credits to user Ghostoy
+*/ 
+    function commafy( num ) {
+        let str = num.toString().split('.');
+        if (str[0].length >= 5) {
+            str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+        }
+        if (str[1] && str[1].length >= 5) {
+            str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+        }
+        return str.join('.');
     }
-    
+
+// Below is the timer with if statements to invoke the setUpNewRound at specific values for time
+const timer = () => {
+    time+=10000000;
+    $('#year').text('Age: ' + commafy(time) + ' Years');
+    if (time === 1500000000){
+        round++;
+        setUpNewRound();
+    } else if (time === 2500000000){
+        round++;
+        setUpNewRound();
+    } else if (time === 3500000000){
+        round++;
+        setUpNewRound();
+    } else if (time === 4540000000){
+       round++;
+       setUpNewRound();
+    } else if (time > 4540000000) {
+        $('#year').text('Age: 4,540,000,000 Years');
+    }
+};
+
+
+
+const setUpNewRound = () => {
+    console.log(round);
 }
-
-
-
 
 /* === Button Event Listeners === */
 
+// let timeWithCommas = commafy(time);
+
 $('#begin-game').on('click', () => {
     console.log("Begin Game Clicked");
+    timer();
     setUpGame();
+    setInterval(timer, 10);
 });
 
 $('#btn-oxygen').on('click', () => {
