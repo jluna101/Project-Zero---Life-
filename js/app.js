@@ -41,6 +41,8 @@ const setUpGame = () => {
 const timer = () => {
     time+=10000000;
     $('#year').text('Age: ' + commafy(time) + ' Years');
+    
+
     if (time === 1500000000){
         round++;
         setUpNewRound();
@@ -55,13 +57,23 @@ const timer = () => {
        setUpNewRound();
     } else if (time > 4540000000) {
         $('#year').text('Age: 4,540,000,000 Years');
-    }
-};
-
+        
+    }};
 
 
 const setUpNewRound = () => {
-    console.log(round);
+    if (round === 2){
+        $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314648-42cabec9-59ed-41fb-903b-794f8357d0f3.gif");
+        console.log(round);
+    } else if (round === 3){
+        $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314774-13fcad42-3af5-4974-a935-6891ad034b1d.gif");
+        console.log(round);
+    } else if (round === 4){
+        $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314854-42742347-8ee9-43d8-b5b6-70aa8feb45bb.gif");
+        console.log(round);
+    }
+    
+
 }
 
 /* === Button Event Listeners === */
@@ -72,7 +84,7 @@ $('#begin-game').on('click', () => {
     console.log("Begin Game Clicked");
     timer();
     setUpGame();
-    setInterval(timer, 10);
+    setInterval(timer, 100);
 });
 
 $('#btn-oxygen').on('click', () => {
