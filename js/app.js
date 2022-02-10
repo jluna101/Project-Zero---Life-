@@ -3,12 +3,11 @@
 let time = 500000000;
 let round = 1;
 let nickname = prompt('Welcome! To begin enter a nickname for your Earth');
+let oxygenLevel = 5;
+let waterLevel = 5;
+let sunlightLevel = 5;
 
 let num = 100000;
-
-/* === Test Functions === */
-
-
 
 /* === Functions === */
 
@@ -21,11 +20,23 @@ const setUpGame = () => {
     $('#begin-game').remove();
     // timer(); - TIMER NOT WORKING YET 
 }
+// Below invokes additional rounds (total 4 rounds) by changing the gif 
+const setUpNewRound = () => {
+    if (round === 2){
+        $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314648-42cabec9-59ed-41fb-903b-794f8357d0f3.gif");
+        console.log(round);
+    } else if (round === 3){
+        $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314774-13fcad42-3af5-4974-a935-6891ad034b1d.gif");
+        console.log(round);
+    } else if (round === 4){
+        $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314854-42742347-8ee9-43d8-b5b6-70aa8feb45bb.gif");
+        console.log(round);
+    }
+}
 
-/* 
-    The below Commafy() function came from stackoverflow, with only minor changes made by Jesse (me): https://stackoverflow.com/questions/6784894/add-commas-or-spaces-to-group-every-three-digits
-    Credits to user Ghostoy
-*/ 
+// The below Commafy() function came from stackoverflow, with only minor changes made by Jesse (me): https://stackoverflow.com/questions/6784894/add-commas-or-spaces-to-group-every-three-digits
+// Credits to user Ghostoy
+ 
     function commafy( num ) {
         let str = num.toString().split('.');
         if (str[0].length >= 5) {
@@ -60,21 +71,14 @@ const timer = () => {
         
     }};
 
+    const oxygenDecrease = setInterval(() => {
+        oxygenLevel--;
+        console.log('oxygen is ' + oxygenLevel);
+    }, 1000);
 
-const setUpNewRound = () => {
-    if (round === 2){
-        $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314648-42cabec9-59ed-41fb-903b-794f8357d0f3.gif");
-        console.log(round);
-    } else if (round === 3){
-        $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314774-13fcad42-3af5-4974-a935-6891ad034b1d.gif");
-        console.log(round);
-    } else if (round === 4){
-        $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314854-42742347-8ee9-43d8-b5b6-70aa8feb45bb.gif");
-        console.log(round);
-    }
     
 
-}
+
 
 /* === Button Event Listeners === */
 
@@ -84,21 +88,26 @@ $('#begin-game').on('click', () => {
     console.log("Begin Game Clicked");
     timer();
     setUpGame();
-    setInterval(timer, 100);
+    setInterval(timer, 10);
 });
 
 $('#btn-oxygen').on('click', () => {
     console.log("Oxygen Clicked");
+    oxygenLevel++;
+    console.log(oxygenLevel);
 });
 
 $('#btn-water').on('click', () => {
     console.log("Water Clicked");
+    waterLevel++;
+    console.log(waterLevel);
 });
 
 $('#btn-sun').on('click', () => {
     console.log("Sun Clicked");
+    sunlightLevel++;
+    console.log(sunlightLevel);
 });
-
 
 
 
