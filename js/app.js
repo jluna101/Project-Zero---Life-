@@ -3,15 +3,38 @@
 let time = 500000000;
 let round = 1;
 let nickname = prompt('Welcome! To begin enter a nickname for your Earth');
-let oxygenLevel = 5;
-let waterLevel = 5;
-let sunlightLevel = 5;
+let oxygenLevel = 3;
+let waterLevel = 3;
+let sunlightLevel = 3;
 
 
 let num = 100000;
 
 /* === Functions === */
 
+// Created functions which decrease the health of the elemeny by 1 every second 
+
+const oxygenDecrease = setInterval(() => {
+    oxygenLevel--;
+    if (oxygenLevel === 0){
+        clearInterval(oxygenDecrease);
+    }
+    console.log('DECREASED oxygen to ' + oxygenLevel);
+}, 1000);
+const waterDecrease = setInterval(() => {
+    waterLevel--;
+    if (waterLevel === 0){
+        clearInterval(waterDecrease);
+    }
+    console.log('DECREASED water to ' + waterLevel);
+}, 1000);
+const sunlightDecrease = setInterval(() => {
+    sunlightLevel--;
+    if (sunlightLevel === 0){
+        clearInterval(sunlightDecrease);
+    }
+    console.log('DECREASED sunlight to ' + sunlightLevel);
+}, 1000);
 
 // Below sets the game up by remove the landing page html, displaying the nickname input, and begins the time. 
 const setUpGame = () => {
@@ -32,8 +55,18 @@ const setUpNewRound = () => {
     } else if (round === 4){
         $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314854-42742347-8ee9-43d8-b5b6-70aa8feb45bb.gif");
         console.log(round);
-    }
+    } 
 }
+
+
+const gameOver = () => {
+        $('#btn-oxygen').off('click');
+        $('#btn-water').off('click');
+        $('#btn-sun').off('click');
+        console.log("game over");
+        $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153334497-cb7e076c-7610-4369-8944-f21ddc5af27b.gif");
+    }
+
 
 // The below Commafy() function came from stackoverflow, with only minor changes made by Jesse (me): https://stackoverflow.com/questions/6784894/add-commas-or-spaces-to-group-every-three-digits
 // Credits to user Ghostoy
@@ -50,37 +83,9 @@ const setUpNewRound = () => {
     }
 
 
-// Created functions which decrease the health of the elemeny by 1 every second 
-
-const oxygenDecrease = setInterval(() => {
-    oxygenLevel--;
-    if (oxygenLevel < 0){
-        oxygenLevel = 0;
-    }
-    console.log('DECREASED oxygen to ' + oxygenLevel);
-}, 1000);
-const waterDecrease = setInterval(() => {
-    waterLevel--;
-    if (waterLevel < 0){
-        waterLevel = 0;
-    }
-    console.log('DECREASED water to ' + waterLevel);
-}, 1000);
-const sunlightDecrease = setInterval(() => {
-    sunlightLevel--;
-    if (sunlightLevel < 0){
-        sunlightLevel = 0;
-    }
-    console.log('DECREASED sunlight to ' + sunlightLevel);
-}, 1000);
-
-    
-
 
 
 /* === Button Event Listeners === */
-
-// let timeWithCommas = commafy(time);
 
 // Timer begins when 'begin game' button is selected and timer stops when time = 4540000000
 $('#begin-game').on('click', () => {
@@ -100,10 +105,13 @@ $('#begin-game').on('click', () => {
             setUpNewRound();
         } else if (time === 4540000000){
            round++;
+           console.log(round);
            setUpNewRound();
            clearInterval(timer);
            console.log("timer stopped")
-        }}, 10);
+        }  else if (oxygenLevel === 0){
+             gameOver();
+        }}, 1000);
     });
 
 
