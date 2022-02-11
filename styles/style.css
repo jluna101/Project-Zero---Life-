@@ -3,42 +3,31 @@
     --primary: #fdc500;
     --secondary: #00509d;
 } 
-.pointer {
-    cursor: 
-}
-
 body {
     color: white;
     font-family: 'Press Start 2P', cursive;
     background-image: url("https://i.pinimg.com/originals/b4/71/d6/b471d641c2fb84308dfb016cbf4ac6bb.gif");
-    background-repeat: no-repeat;
     background-size: cover; 
-    
 }
-/* === Header - logo / welcome === */
+/* === Header: Logo, Welcome/Nickname === */
 header {
     display: flex;
     flex-direction: column;
     text-align: center;
-    
-
 }
 #logo {
     max-width: 100px;
-    border: 2px solid black;
     font-size: 25px;
     padding: 10px;
     margin-bottom: 10px;
-    margin-left: 25px;
 }
 #welcome-nickname {
     align-self: center;
     width: 100%;
-    border: 2px solid black;
     font-size: 40px;
     color: var(--secondary);
 }
-/* === Section - Year & Gif & Landing Page Alerts=== */
+/* === Section: Container, Year, and Main Gif === */
 #year-and-gif {
     display: flexbox;
     text-align: center;
@@ -48,27 +37,22 @@ header {
 #year {
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid black;
     min-width: 300px;
     font-size: 30px;
 }
 #earth {
     min-height: 300px; 
-    border: 2px solid black;
     margin-left: auto;
     margin-right: auto;
     padding: 20px 0px 20px 0px;
     width: 35%;
 }
-
-/* === Section - Landing Page Alert === */ 
-
+/* === Section: Game Description and Begin Game Button  === */ 
 #initial-description {
     border: 2px solid white;
     margin-left: auto;
     margin-right: auto;
     max-width: 75%;
-    max-height: 250px;
     font-size: 18px;
 }
 #begin-game {
@@ -80,7 +64,7 @@ header {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-/* === Footer - metrics & btn containers === */
+/* === Footer: Health Elements Progress Bars and Buttons === */
 
 #metrics-container {
     display: flex;
