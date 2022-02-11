@@ -1,20 +1,16 @@
 // Variables 
-
 let time = 500000000;
 let round = 1;
 let name = prompt('Please enter your name');
 let oxygenLevel = 10;
 let waterLevel = 10;
 let sunlightLevel = 10;
-
-
-/* === Methods === */
-
+/* === Functions === */
 // Below sets the game up by remove the landing page html, displaying the nickname input, and begins the time. 
 const setUpGame = () => {
     $('#initial-alert').hide();
     $('#welcome-nickname').text(name + "'s EARTH").toUpperCase;
-    $('#begin-game').css('opacity', '0');
+    $('#begin-game').css('opacity', 0);
 }
 // Below invokes additional rounds (total 4 rounds) by changing the gif 
 const setUpNewRound = () => {
@@ -34,10 +30,8 @@ const setUpNewRound = () => {
         clearInterval(timer);
     }
 }
-
 // The below Commafy() function came from stackoverflow, with only minor changes made by Jesse (me): https://stackoverflow.com/questions/6784894/add-commas-or-spaces-to-group-every-three-digits
 // Credits to user Ghostoy
-
     function commafy( num ) {
         let str = num.toString().split('.');
         if (str[0].length >= 5) {
@@ -48,10 +42,8 @@ const setUpNewRound = () => {
         }
         return str.join('.');
     }
-
 /* === Event Listeners === */
-
-// Timer begins when 'begin game' button is selected and timer stops when time = 4540000000
+// Below is an event listener for the button 'begin-game' which initiates the game. This is done by beginning the timer, decreasing the oxygenLevel, waterLevel, and sunlightLevel. The gameOver function is also included in this. 
 $('#begin-game').on('click', () => {
     setUpGame();
     timer = setInterval(function () {
@@ -112,18 +104,24 @@ $('#begin-game').on('click', () => {
         }
     });
     
-
-
+// Below are the event listeners for the oxygen, water, and sunlight button. Each will increase value by one when clicked with a max value of 10. 
 $('#btn-oxygen').on('click', () => {
     oxygenLevel++;
     $('#oxygen').attr('value', oxygenLevel)
+    $('#btn-oxygen').animate({opacity: '0%'},{duration: 10, complete: function(){
+        $('#btn-oxygen').animate({opacity: '100%'}, 10);
+    }})
     if (oxygenLevel > 10){
         oxygenLevel = 10;
     }
 });
-$('btn-water').on('click', () => {
+
+$('#btn-water').on('click', () => {
     waterLevel++;
     $('#water').attr('value', waterLevel)
+    $('#btn-water').animate({opacity: '0%'},{duration: 10, complete: function(){
+        $('#btn-water').animate({opacity: '100%'}, 10);
+    }})
     if (waterLevel > 10){
         waterLevel = 10;
     }
@@ -131,6 +129,9 @@ $('btn-water').on('click', () => {
 $('#btn-sun').on('click', () => {
     sunlightLevel++;
     $('#sun').attr('value', sunlightLevel)
+    $('#btn-sun').animate({opacity: '0%'},{duration: 10, complete: function(){
+        $('#btn-sun').animate({opacity: '100%'}, 10);
+    }})
     if (sunlightLevel > 10){
         sunlightLevel = 10;
     }
@@ -140,3 +141,4 @@ $('#btn-sun').on('click', () => {
 
 
 
+// $("#btn-oxygen").fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
