@@ -1,7 +1,7 @@
 // Variables 
 let time = 500000000;
 let round = 1;
-let name = prompt('Please enter your name');
+let name = prompt('Give your Earth a nickname!');
 let oxygenLevel = 10;
 let waterLevel = 10;
 let sunlightLevel = 10;
@@ -9,7 +9,7 @@ let sunlightLevel = 10;
 // Below sets the game up by remove the landing page html, displaying the nickname input, and begins the time. 
 const setUpGame = () => {
     $('#initial-alert').hide();
-    $('#welcome-nickname').text(name + "'s EARTH");
+    $('#welcome-nickname').text(name);
     $('#begin-game').css('opacity', 0);
 }
 // The below function invokes specific gif as the rounds increased, turns off the event listeners, timer, and also displays 'you won' when round 5 is reached
