@@ -2,7 +2,7 @@
 
 let time = 500000000;
 let round = 1;
-let nickname = prompt('Welcome! To begin enter a nickname for your Earth');
+let name = prompt('Please enter your name');
 let oxygenLevel = 10;
 let waterLevel = 10;
 let sunlightLevel = 10;
@@ -13,7 +13,7 @@ let sunlightLevel = 10;
 // Below sets the game up by remove the landing page html, displaying the nickname input, and begins the time. 
 const setUpGame = () => {
     $('#initial-alert').hide();
-    $('#welcome-nickname').text(nickname).toUpperCase;
+    $('#welcome-nickname').text(name + "'s EARTH").toUpperCase;
     $('#begin-game').css('opacity', '0');
 }
 // Below invokes additional rounds (total 4 rounds) by changing the gif 
@@ -49,7 +49,7 @@ const setUpNewRound = () => {
         return str.join('.');
     }
 
-/* === Button Event Listeners === */
+/* === Event Listeners === */
 
 // Timer begins when 'begin game' button is selected and timer stops when time = 4540000000
 $('#begin-game').on('click', () => {
@@ -121,15 +121,13 @@ $('#btn-oxygen').on('click', () => {
         oxygenLevel = 10;
     }
 });
-
-$('#btn-water').on('click', () => {
+$('btn-water').on('click', () => {
     waterLevel++;
     $('#water').attr('value', waterLevel)
     if (waterLevel > 10){
         waterLevel = 10;
     }
 });
-
 $('#btn-sun').on('click', () => {
     sunlightLevel++;
     $('#sun').attr('value', sunlightLevel)

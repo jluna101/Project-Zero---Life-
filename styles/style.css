@@ -44,8 +44,6 @@ header {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-
-
 }
 #year {
     margin-left: auto;
@@ -54,7 +52,6 @@ header {
     min-width: 300px;
     font-size: 30px;
 }
-
 #earth {
     min-height: 300px; 
     border: 2px solid black;
@@ -62,13 +59,10 @@ header {
     margin-right: auto;
     padding: 20px 0px 20px 0px;
     width: 35%;
-
 }
 
 /* === Section - Landing Page Alert === */ 
 
-#initial-alert {
-}
 #initial-description {
     border: 2px solid white;
     margin-left: auto;
@@ -86,11 +80,7 @@ header {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
 /* === Footer - metrics & btn containers === */
-footer {
-
-}
 
 #metrics-container {
     display: flex;
@@ -101,19 +91,9 @@ footer {
     border: 2px solid white;
     border-radius: 500px;
 }
-#oxygen {
-    height: 0x;
-}
-#water {
-    
-}
-#sun {
-    
-}
 #btn-container {
     display: flex;
     justify-content: space-around;
-    
 }
 .btn {
     text-align: center;
@@ -123,14 +103,12 @@ footer {
 #btn-oxygen {
     border: 2px solid white;
     background-color: var(--primary);
-    color:black;
-    
+    color:black;  
 }
 #btn-water {
     border: 2px solid white;
     background-color: var(--primary);
     color:black;
-    
 }
 #btn-sun {
     border: 2px solid white;
