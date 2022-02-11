@@ -1,28 +1,45 @@
 :root {
     
 } 
+.pointer {
+    cursor: 
+}
 
 body {
-    background-color: beige;
+    /* background-image: url("https://i.pinimg.com/originals/b4/71/d6/b471d641c2fb84308dfb016cbf4ac6bb.gif");
+    background-repeat: no-repeat;
+    background-size: cover; */
+    
 }
 /* === Header - logo / welcome === */
 header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+
 }
 #logo {
-    background-color: cyan;
+    max-width: 100px;
     border: 2px solid black;
-    
 }
 #welcome-nickname {
-    background-color: orange;
+    align-self: center;
+    width: 200px;
     border: 2px solid black;
 }
 /* === Section - Year & Gif & Landing Page Alerts=== */
 #year-and-gif {
     background-color: burlywood;
+    display: flexbox;
+    text-align: center;
+
+
 }
 #year {
-    align-item: center;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
     border: 2px solid black;
 }
 
@@ -34,7 +51,7 @@ header {
 /* === Section - Landing Page Alert === */ 
 
 #initial-alert {
-    background-color: blueviolet;
+
 }
 #initial-description {
     border: 2px solid black;
