@@ -9,10 +9,10 @@ let sunlightLevel = 10;
 // Below sets the game up by remove the landing page html, displaying the nickname input, and begins the time. 
 const setUpGame = () => {
     $('#initial-alert').hide();
-    $('#welcome-nickname').text(name + "'s EARTH").toUpperCase;
+    $('#welcome-nickname').text(name + "'s EARTH");
     $('#begin-game').css('opacity', 0);
 }
-// Below invokes additional rounds (total 4 rounds) by changing the gif 
+// The below function invokes specific gif as the rounds increased, turns off the event listeners, timer, and also displays 'you won' when round 5 is reached
 const setUpNewRound = () => {
     if (round === 2){
         $('#earth').attr("src","https://user-images.githubusercontent.com/97872070/153314648-42cabec9-59ed-41fb-903b-794f8357d0f3.gif");
@@ -115,7 +115,6 @@ $('#btn-oxygen').on('click', () => {
         oxygenLevel = 10;
     }
 });
-
 $('#btn-water').on('click', () => {
     waterLevel++;
     $('#water').attr('value', waterLevel)
