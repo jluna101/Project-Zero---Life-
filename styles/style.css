@@ -1,14 +1,18 @@
+
 :root {
-    
+    --primary: #fdc500;
+    --secondary: #00509d;
 } 
 .pointer {
     cursor: 
 }
 
 body {
-    /* background-image: url("https://i.pinimg.com/originals/b4/71/d6/b471d641c2fb84308dfb016cbf4ac6bb.gif");
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-image: url("https://i.pinimg.com/originals/b4/71/d6/b471d641c2fb84308dfb016cbf4ac6bb.gif");
     background-repeat: no-repeat;
-    background-size: cover; */
+    background-size: cover; 
     
 }
 /* === Header - logo / welcome === */
@@ -22,42 +26,65 @@ header {
 #logo {
     max-width: 100px;
     border: 2px solid black;
+    font-size: 25px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 25px;
 }
 #welcome-nickname {
     align-self: center;
-    width: 200px;
+    width: 100%;
     border: 2px solid black;
+    font-size: 40px;
+    color: var(--secondary);
 }
 /* === Section - Year & Gif & Landing Page Alerts=== */
 #year-and-gif {
-    background-color: burlywood;
     display: flexbox;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 
 
 }
 #year {
-    max-width: 200px;
     margin-left: auto;
     margin-right: auto;
     border: 2px solid black;
+    min-width: 300px;
+    font-size: 30px;
 }
 
 #earth {
     min-height: 300px; 
+    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 0px 20px 0px;
+    width: 35%;
 
 }
 
 /* === Section - Landing Page Alert === */ 
 
 #initial-alert {
-
 }
 #initial-description {
-    border: 2px solid black;
+    border: 2px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 75%;
+    max-height: 250px;
+    font-size: 18px;
 }
 #begin-game {
-    background-color: gray;
+    background-color: green;
+    width: 110px;
+    border: 2px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* === Footer - metrics & btn containers === */
@@ -66,42 +93,48 @@ footer {
 }
 
 #metrics-container {
-    background-color: orange;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 .metrics {
-    background-color: teal;
+    border: 2px solid white;
+    border-radius: 500px;
 }
 #oxygen {
-    border: 2px solid black;
+    height: 0x;
 }
 #water {
-    border: 2px solid black;
+    
 }
 #sun {
-    border: 2px solid black;
+    
 }
 #btn-container {
-    background-color: yellow;
     display: flex;
     justify-content: space-around;
     
 }
 .btn {
     text-align: center;
+    margin-top: 20px;
+    padding: 6px;
 }
 #btn-oxygen {
-    border: 2px solid black;
-
+    border: 2px solid white;
+    background-color: var(--primary);
+    color:black;
+    
 }
 #btn-water {
-    border: 2px solid black;
+    border: 2px solid white;
+    background-color: var(--primary);
+    color:black;
     
 }
 #btn-sun {
-    border: 2px solid black;
+    border: 2px solid white;
+    background-color: var(--primary);
+    color:black;
 }
-
 

@@ -3,19 +3,20 @@
 let time = 500000000;
 let round = 1;
 let nickname = prompt('Welcome! To begin enter a nickname for your Earth');
-let oxygenLevel = 11;
-let waterLevel = 11;
-let sunlightLevel = 11;
+let oxygenLevel = 10;
+let waterLevel = 10;
+let sunlightLevel = 10;
 
 
 /* === Methods === */
 
 // Below sets the game up by remove the landing page html, displaying the nickname input, and begins the time. 
 const setUpGame = () => {
-    // $('#year').text('Year: ' + time + ' million');
-    $('#initial-alert').remove();
+    // $('#earth').css('width', '45%')
+    $('#initial-alert').hide();
     $('#welcome-nickname').text(nickname).toUpperCase;
-    $('#begin-game').remove();
+    $('#begin-game').css('opacity', '0');
+    // $('#begin-game').remove();
     // timer(); - TIMER NOT WORKING YET 
 }
 // Below invokes additional rounds (total 4 rounds) by changing the gif 
@@ -31,6 +32,9 @@ const setUpNewRound = () => {
         console.log(round);
     } else if (round === 5){
         console.log('you won! Congrats')
+        $('#initial-alert').show();
+        $('#initial-alert').text('YOU WON!');
+        $('#initial-alert').css('font-size', 70);
         $('#btn-oxygen').off('click');
         $('#btn-water').off('click');
         $('#btn-sun').off('click');
@@ -81,7 +85,7 @@ $('#begin-game').on('click', () => {
            console.log("timer stopped")
         }  else if (oxygenLevel === 0 || waterLevel === 0 || sunlightLevel === 0){
              gameOver();
-        }}, 10);
+        }}, 100);
     const oxygenDecrease = setInterval(() => {
             oxygenLevel--;
             $('#oxygen').attr('value', oxygenLevel)
@@ -110,6 +114,9 @@ $('#begin-game').on('click', () => {
             $('#btn-oxygen').off('click');
             $('#btn-water').off('click');
             $('#btn-sun').off('click');
+            $('#initial-alert').show();
+            $('#initial-alert').text('GAME OVER');
+            $('#initial-alert').css('font-size', 70);
             clearInterval(timer);
             clearInterval(waterDecrease);
             clearInterval(oxygenDecrease);
